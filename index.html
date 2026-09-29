@@ -4,38 +4,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Quicksand:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <title>Student Registration</title>
+
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
 </head>
 
 <body>
-    <div class="load">
-        <span>🎀</span>
-        <p>Chérie</p>
 
-    </div>
-    <header class="container">
-        <div class="menu">
-            <p>Shop Cute</p>
-            <p>Our Magic</p>
-        </div>
-        <div>
-            <h1>🎀Chérie</h1>
-        </div>
-        <div class="cir">
-            <span>AR</span>
-            <span>🌙</span>
-            <span>♡</span>
-            <span> 🛍</span>
-        </div>
+    <!-- Page Header -->
+    <header class="header">
+
+        <span class="badge">STUDENT PORTAL</span>
+
+        <h1>Student Registration</h1>
+
+        <p>
+            Add a student and keep track of their academic status.
+        </p>
+
     </header>
+
+
+    <main class="container">
+
+        <!-- Student Registration -->
+        <section class="registration-section">
+
+            <h2>Student Information</h2>
+
+            <form id="studentForm">
+
+                <div class="input-group">
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input type="text" id="studentName" placeholder="Enter student name">
+
+                </div>
+
+
+                <div class="input-row">
+
+                    <div class="input-group">
+
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input type="number" id="age" placeholder="Enter age">
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="grade">
+                            Grade
+                        </label>
+
+                        <input type="number" id="grade" placeholder="Enter grade (0 - 100)">
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="course">
+                        Course Name
+                    </label>
+
+                    <input type="text" id="course" placeholder="Enter course name">
+
+                </div>
+
+
+                <p id="errorMessage" class="error-message" role="alert"></p>
+
+
+                <button type="submit" id="addStudent">
+                    <span>+</span>
+                    Add Student
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Students List -->
+        <section class="students-section">
+
+            <div class="students-header">
+
+                <div>
+                    <span class="small-title">
+                        YOUR STUDENTS
+                    </span>
+
+                    <h2>Registration List</h2>
+                </div>
+
+
+                <div class="student-count">
+                    <span id="studentCount">0</span>
+                    Students
+                </div>
+
+            </div>
+
+
+            <!-- Students Cards -->
+            <div id="studentsContainer" class="students-container">
+
+                <!-- Empty State -->
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+                        🎓
+                    </div>
+
+                    <h3>No students yet</h3>
+
+                    <p>
+                        Add your first student using the form.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
     <script src="script.js"></script>
+
 </body>
 
 </html>

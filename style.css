@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "DM Sans", sans-serif;
+
+    color: #172033;
+
+    background:
+        radial-gradient(circle at 10% 10%,
+            #d3a2dd 0,
+            transparent 30%),
+        radial-gradient(circle at 90% 90%,
+            #d3a2dd 0,
+            transparent 30%),
+        #da77a8;
+
+    padding: 50px 20px;
+}
+
+
+.header {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.badge {
+    display: inline-block;
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+
+.header h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+
+.header p {
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+.container {
+    width: min(1100px, 100%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 400px 1fr;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+
+
+
+.registration-section,
+.students-section {
+    background: #ffffff;
+
+    border: 1px solid #eef2f7;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 60px rgba(30, 41, 59, 0.08);
+}
+
+
+.registration-section {
+    padding: 35px;
+}
+
+
+.registration-section h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+.input-group {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-bottom: 20px;
+}
+
+
+.input-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+label {
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+    margin-bottom: 8px;
+}
+
+
+input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: #f8fafc;
+
+    color: #172033;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+
+input:focus {
+    background: #ffffff;
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 4px rgba(96, 165, 250, 0.12);
+}
+
+
+.error-message {
+    min-height: 20px;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+}
+
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+
+button span {
+    font-size: 20px;
+
+    margin-right: 5px;
+
+    vertical-align: -1px;
+}
+
+
+button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(37, 99, 235, 0.25);
+}
+
+.students-section {
+    padding: 35px;
+}
+
+
+.students-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.small-title {
+    display: inline-block;
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.students-header h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+}
+
+
+.student-count {
+    background: #f8fafc;
+
+    padding: 10px 15px;
+
+    border-radius: 30px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+#studentCount {
+    color: #2563eb;
+
+    font-weight: 700;
+
+    margin-right: 4px;
+}
+
+
+.students-container {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+
+.empty-state {
+    grid-column: 1 / -1;
+
+    background: #f8fafc;
+
+    border: 2px dashed #e2e8f0;
+
+    border-radius: 24px;
+
+    padding: 55px 20px;
+
+    text-align: center;
+}
+
+
+.empty-icon {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+
+.empty-state h3 {
+    font-size: 18px;
+
+    margin-bottom: 7px;
+}
+
+
+.empty-state p {
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+
+
+.student-card {
+    background: #ffffff;
+
+    padding: 24px;
+
+    border: 1px solid #eef2f7;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px rgba(30, 41, 59, 0.06);
+
+    transition: 0.25s;
+}
+
+
+.student-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 18px 40px rgba(30, 41, 59, 0.1);
+}
+
+
+.student-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 18px;
+}
+
+
+.student-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.info-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    font-size: 13px;
+}
+
+
+.info-item span:first-child {
+    color: #94a3b8;
+}
+
+
+.info-item span:last-child {
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+
+
+.status {
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+.passed {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+
+.failed {
+    background: #fee2e2;
+
+    color: #dc2626;
+}
+
+
+@media (max-width: 850px) {
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 30px 15px;
+    }
+
+
+    .header h1 {
+        font-size: 34px;
+    }
+
+
+    .registration-section,
+    .students-section {
+        padding: 25px 20px;
+
+        border-radius: 22px;
+    }
+
+
+    .input-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    .students-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .students-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .students-header h2 {
+        font-size: 26px;
+    }
+
+}

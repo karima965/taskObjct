@@ -1,61 +1,100 @@
-// let title = document.querySelector(".product-card");
-// function show(name) {
-//     return `welcom ${name}`;
+const studentName = document.getElementById("studentName");
+const age = document.getElementById("age");
+const grade = document.getElementById("grade");
+const course = document.getElementById("course");
+const errorMessage = document.getElementById("errorMessage");
+const addStudent = document.getElementById("addStudent");
+const studentCount = document.getElementById("studentCount");
+const studentForm = document.getElementById("studentForm");
+const studentsContainer = document.getElementById("studentsContainer");
 
-// }
+let students = [];
+studentForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let nameValue = studentName.value;
+    let ageValue = age.value;
+    let gradeValue = grade.value;
+    let courseValue = course.value;
+    if (nameValue === '' || ageValue === '' || gradeValue === '' || courseValue === '') {
 
-
-// console.log(show("kim"))
-// function show(name,age,...slils){
-//     age=age||"m";
-//     return `hello ${name} ,${age} , skills are ${slils.join(" ")}`;
-// }
-// console.log(show("kim",22,"car","red","blue"))
-let products = [
-    {
-        id: 1, name: "Laptop",
-        price: 20000,
-        available: true
-    },
-    {
-        id: 2,
-        name: "Mouse",
-        price: 500,
-        available: true
-    },
-    {
-        id: 3,
-        name: "Keyboard",
-        price: 1000,
-        available: false
-    },
-    {
-        id: 4,
-        name: "Phone",
-        price: 15000,
-        available: true
-    },
-    {
-        id: 5,
-        name: "Headphone",
-        price: 800,
-        available: false
+        errorMessage.innerHTML = `Please fill in all fields`;
     }
-];
-let productsName = products.map(item => item.name);
-console.log(productsName);
-let productsPrice = products.filter(item => item.price < 2000);
-console.log(productsPrice);
-let productsId = products.find(item => item.id === 3);
-console.log(productsId);
-products.forEach(item => {
-    console.log(`Product:${item.name}-Price:${item.price}`)
+    else if (gradeValue < 0 || gradeValue > 100) {
+        errorMessage.innerHTML = `Grade must be between 0 and 100`;
+
+    }
+    else if (ageValue < 0) {
+        errorMessage.innerHTML = `Age cannot be negative`;
+
+    }
+    else {
+        students.push({
+            name: nameValue,
+            age: ageValue,
+            grade: gradeValue,
+            course: courseValue,
+            status: status(gradeValue)
+
+        })
+        drowCard();
+    }
+    function status(stat) {
+        if (stat >= 50) {
+            return "Passed";
+        }
+        else {
+            return "Failed";
+
+        }
+
+    }
+
+
+
 })
-let productsTrue = products.some(item => item.price > 18000);
-console.log(productsTrue);
-let productsAvailable = products.every(item => item.available);
-console.log(productsAvailable);
-let productsTotal = products.reduce((sum, item) => {
-    return sum + item.price;
-}, 0);
-console.log(productsTotal);
+
+function drowCard() {
+
+    const std = students.map((item) => {
+        return `
+        <div class="student-card">
+
+    <h3>${item.name}</h3>
+
+    <div class="student-info">
+
+        <div class="info-item">
+            <span>Age</span>
+            <span>${item.age}</span>
+        </div>
+
+        <div class="info-item">
+            <span>Course</span>
+            <span>${item.course}</span>
+        </div>
+
+        <div class="info-item">
+            <span>Grade</span>
+            <span>${item.grade}</span>
+        </div>
+
+        <div class="info-item">
+            <span>Status</span>
+            <span class="status passed">${item.status}</span>
+        </div>
+
+    </div>
+
+</div>
+        
+        `;
+    })
+    studentsContainer.innerHTML = std.join("");
+    age.value = "";
+    studentName.value = "";
+    grade.value = "";
+    course.value = "";
+    errorMessage.textContent = "";
+    studentCount.textContent=students.length;
+}
+
